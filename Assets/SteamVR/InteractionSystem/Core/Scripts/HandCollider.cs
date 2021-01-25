@@ -12,8 +12,6 @@ namespace Valve.VR.InteractionSystem
 
         public LayerMask collisionMask;
 
-        // public Collision colliding = null;
-
         Collider[] colliders;
 
         public FingerColliders fingerColliders;

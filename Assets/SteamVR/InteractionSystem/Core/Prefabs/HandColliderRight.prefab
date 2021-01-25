@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 4000010266578624}
   - component: {fileID: 114000013167804218}
   - component: {fileID: 54000012734507470}
+  - component: {fileID: -2991968449915318630}
   m_Layer: 3
   m_Name: HandColliderRight
   m_TagString: Untagged
@@ -573,6 +574,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2991968449915318630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013185594350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b81d8f04c15f5f46a47cda822612a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSource: 2
+  handCollider: {fileID: 114000013167804218}
 --- !u!1 &1000013323899228
 GameObject:
   m_ObjectHideFlags: 0

@@ -685,6 +685,7 @@ GameObject:
   - component: {fileID: 4000011495277878}
   - component: {fileID: 114000010572907066}
   - component: {fileID: 54000013135273658}
+  - component: {fileID: 8376645175791913657}
   m_Layer: 3
   m_Name: HandColliderLeft
   m_TagString: Untagged
@@ -720,21 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2820b584f2917744bafbfd2f8f387225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCollisionChild:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1743212910381553250, guid: 4f5a86aa478529047a37c33c85d8ba43, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   hand: {fileID: 0}
   collisionMask:
     serializedVersion: 2
@@ -773,6 +759,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8376645175791913657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013588331694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b81d8f04c15f5f46a47cda822612a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSource: 1
+  handCollider: {fileID: 114000010572907066}
 --- !u!1 &1000013918884664
 GameObject:
   m_ObjectHideFlags: 0

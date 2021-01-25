@@ -8,24 +8,17 @@ public class climbLocomotion : MonoBehaviour
 {
     public SteamVR_Action_Boolean GrabAction = null;
     public SteamVR_Action_Pose PoseAction = null;
-
-    // public GameObject leftHand, rightHand = null;
-
-    // private HandPhysics leftHandPhysics, rightHandPhysics;
-
     private Rigidbody rb;
-
     private SteamVR_Input_Sources currentLocomotionHand;
+    private bool lHandCanGrab, rHandCanGrab = false;
 
-    private bool canGrab = false;
+    private bool lGrabbing = false;
+    private bool rGrabbing = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        // leftHandPhysics = leftHand.GetComponent<HandPhysics>();
-        // rightHandPhysics = rightHand.GetComponent<HandPhysics>();
     }
 
     // Update is called once per frame
@@ -33,45 +26,70 @@ public class climbLocomotion : MonoBehaviour
     {
         // ====================================================================================================
         // TODO:
-        //   Check for wall collision (Both to approve grab and to make sure I cant swing through a wall)
         //   Stop hand from moving
         //   Potentially get hand to cling to wall surface
         //   Potentially get alternate hand to ghost when to far away
-        //   Center Colliders on VRCAMERA
         // ====================================================================================================
 
-        // Collision leftHandColliding = leftHandPhysics.handCollider.colliding;
-        // Collision rightHandColliding = rightHandPhysics.handCollider.colliding;
-
-        // if(GrabAction.GetStateDown(SteamVR_Input_Sources.RightHand) && rightHandColliding != null) {
-        //     if(currentLocomotionHand != SteamVR_Input_Sources.RightHand && rightHandColliding.gameObject.layer == 6) {
-        //         currentLocomotionHand = SteamVR_Input_Sources.RightHand;
-        //     }
-        // }
-
-        // if(GrabAction.GetStateDown(SteamVR_Input_Sources.LeftHand) && leftHandColliding != null) {
-        //     if(currentLocomotionHand != SteamVR_Input_Sources.LeftHand && leftHandColliding.gameObject.layer == 6) {
-        //         currentLocomotionHand = SteamVR_Input_Sources.LeftHand;
-        //     }
-        // }
-
-        if(GrabAction.GetStateDown(SteamVR_Input_Sources.RightHand) && currentLocomotionHand != SteamVR_Input_Sources.RightHand) {
-            currentLocomotionHand = SteamVR_Input_Sources.RightHand;
+        if (rHandCanGrab) {
+            if(GrabAction.GetStateDown(SteamVR_Input_Sources.RightHand) && currentLocomotionHand != SteamVR_Input_Sources.RightHand) {
+                currentLocomotionHand = SteamVR_Input_Sources.RightHand;
+            }
         }
 
-        if(GrabAction.GetStateDown(SteamVR_Input_Sources.LeftHand) && currentLocomotionHand != SteamVR_Input_Sources.LeftHand) {
-            currentLocomotionHand = SteamVR_Input_Sources.LeftHand;
+        if (lHandCanGrab) {
+            if(GrabAction.GetStateDown(SteamVR_Input_Sources.LeftHand) && currentLocomotionHand != SteamVR_Input_Sources.LeftHand) {
+                currentLocomotionHand = SteamVR_Input_Sources.LeftHand;
+            }
         }
 
-       Vector3 vel = PoseAction[currentLocomotionHand].velocity;
+        if (lHandCanGrab || rHandCanGrab) {
+            Vector3 vel = PoseAction[currentLocomotionHand].velocity;
 
-       if(GrabAction.GetState(currentLocomotionHand)) {
-           rb.velocity = Vector3.zero;
-           transform.Translate(-vel * Time.fixedDeltaTime);
-       }
+            if(GrabAction.GetState(currentLocomotionHand)) {
+                setGrabbing(currentLocomotionHand, true);
+                rb.velocity = Vector3.zero;
+                transform.Translate(-vel * Time.fixedDeltaTime);
+            }
 
-       if(GrabAction.GetStateUp(currentLocomotionHand)) {
-           rb.AddRelativeForce(-vel, ForceMode.Impulse);
-       }
+            if(GrabAction.GetStateUp(currentLocomotionHand)) {
+                setGrabbing(currentLocomotionHand, false);
+                rb.AddRelativeForce(-vel, ForceMode.Impulse);
+            }
+
+            // if(GrabAction.GetStateUp(SteamVR_Input_Sources.Any)) {
+            //     setGrabbing(SteamVR_Input_Sources.LeftHand, false);
+            //     setGrabbing(SteamVR_Input_Sources.RightHand, false);
+            //     rb.AddRelativeForce(-vel, ForceMode.Impulse);
+            // }
+        }
+    }
+
+    private bool checkIfMap(Collision collision) {
+        return collision.gameObject.layer == 6;
+    }
+
+    private void setGrabbing(SteamVR_Input_Sources hand, bool state) {
+        if (hand == SteamVR_Input_Sources.LeftHand) lGrabbing = state;
+        if (hand == SteamVR_Input_Sources.RightHand) rGrabbing = state;
+    }
+
+    public void handleChildCollisionEnter(Collision collision, SteamVR_Input_Sources hand) {
+        if (hand == SteamVR_Input_Sources.LeftHand) {
+            lHandCanGrab = checkIfMap(collision);
+        }
+        if (hand == SteamVR_Input_Sources.RightHand) {
+            rHandCanGrab = checkIfMap(collision);
+        }
+    }
+
+    public void handleChildCollisionExit(Collision collision, SteamVR_Input_Sources hand) {
+        if(hand == SteamVR_Input_Sources.RightHand) {
+            if(rHandCanGrab && !rGrabbing) rHandCanGrab = false;
+        }
+
+        if(hand == SteamVR_Input_Sources.LeftHand) {
+            if(lHandCanGrab && !lGrabbing) lHandCanGrab = false;
+        }
     }
 }
