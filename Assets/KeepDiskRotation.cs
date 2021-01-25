@@ -25,7 +25,7 @@ public class KeepDiskRotation : MonoBehaviour
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.layer != 3) {
             setActive(false);
-            StartCoroutine(delayedUpdateAngle(0.2f));
+            StartCoroutine(delayedUpdateAngle(0.1f));
         }
     }
 
