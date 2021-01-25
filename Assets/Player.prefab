@@ -789,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743212910381495838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.051999986, y: -0.015699983, z: -0.11630082}
+  m_LocalPosition: {x: -0.051999986, y: -0.015, z: -0.11630082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1743212910381636418}
@@ -1360,6 +1360,7 @@ GameObject:
   - component: {fileID: 1743212909197777464}
   - component: {fileID: 1743212909197777465}
   - component: {fileID: 1434387940}
+  - component: {fileID: 1226160411632824038}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1434,7 +1435,7 @@ MonoBehaviour:
   thrusterLocomotion: 1
   continousRotation: 1
   thrustAction:
-    actionPath: /actions/default/in/Thrust
+    actionPath: /actions/default/in/InteractUI
     needsReinit: 0
   breakAction:
     actionPath: /actions/default/in/Break
@@ -1459,7 +1460,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/Pitch Down
     needsReinit: 0
   pitchEnabled: 0
-  rotationSpeed: 100
+  rotationSpeed: 125
   thrustSpeed: 1
   boostSpeed: 5
 --- !u!114 &673739656
@@ -1491,7 +1492,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1434387934
 Rigidbody:
@@ -1578,6 +1579,46 @@ MonoBehaviour:
   skeleton: {fileID: 114000010158459022, guid: 057574477c20401448aba7c848873712, type: 3}
   projectileSpawner: {fileID: 1743648859273468466}
   rotOffset: 45
+--- !u!114 &1226160411632824038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743212910381553250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1743212910381554090
 GameObject:
   m_ObjectHideFlags: 0
