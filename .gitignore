@@ -55,8 +55,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-/[Aa]ssets/Thirdparty/*
-/[Aa]ssets/Wispy Sky/*
+/[Aa]ssets/Materials/Thirdparty/*
+/[Aa]ssets/Materials/Wispy Sky/*
 
 # Crashlytics generated file
 crashlytics-build.properties

@@ -15,8 +15,8 @@ namespace Valve.VR.InteractionSystem
         public bool steamVRDefaultCollision;
 
         [Tooltip("Hand collider prefab to instantiate")]
-        public HandCollider handColliderPrefab;
-        [HideInInspector]
+        public GameObject handColliderPrefab;
+        // [HideInInspector]
         public HandCollider handCollider;
 
         [Tooltip("Layers to consider when checking if an area is clear")]
@@ -40,7 +40,7 @@ namespace Valve.VR.InteractionSystem
             hand = GetComponent<Hand>();
             //spawn hand collider and link it to us
             
-            handCollider = ((GameObject)Instantiate(handColliderPrefab.gameObject)).GetComponent<HandCollider>();
+            // handCollider = handColliderPrefab.GetComponent<HandCollider>();
             Vector3 localPosition = handCollider.transform.localPosition;
             Quaternion localRotation = handCollider.transform.localRotation;
 

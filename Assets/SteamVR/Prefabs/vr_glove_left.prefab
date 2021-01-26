@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonAction:
     actionPath: 
-    needsReinit: 0
+    needsReinit: 1
   inputSource: 1
   rangeOfMotion: 1
   skeletonRoot: {fileID: 4000012684619030}
