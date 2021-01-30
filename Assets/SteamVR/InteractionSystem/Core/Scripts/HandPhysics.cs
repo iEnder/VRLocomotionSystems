@@ -203,17 +203,15 @@ namespace Valve.VR.InteractionSystem
                 hand.mainRenderModel.transform.position = offsetPosition;
             }
 
-            /*
-            Vector3 wristPointInArmatureSpace = transform.InverseTransformPoint(handCollider.transform.position);
+            // Vector3 wristPointInArmatureSpace = transform.InverseTransformPoint(handCollider.transform.position);
 
-            Vector3 handTargetPosition =
+            // Vector3 handTargetPosition =
 
-            hand.mainRenderModel.transform.position = handTargetPosition;
+            // hand.mainRenderModel.transform.position = handTargetPosition;
 
-            //Quaternion handTargetRotation = transform.rotation * (wristToArmature.inverse.rotation * (Quaternion.Inverse(transform.rotation) * handCollider.transform.rotation));
+            // Quaternion handTargetRotation = transform.rotation * (wristToArmature.inverse.rotation * (Quaternion.Inverse(transform.rotation) * handCollider.transform.rotation));
 
-            //hand.mainRenderModel.transform.rotation = handTargetRotation;
-            */
+            // hand.mainRenderModel.transform.rotation = handTargetRotation;
         }
 
         Vector3 ProcessPos(int boneIndex, Vector3 pos)

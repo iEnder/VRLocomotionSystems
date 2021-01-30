@@ -137,27 +137,19 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean PitchUp
-        {
-            get
-            {
-                return SteamVR_Actions.default_PitchUp;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean Pitch_Down
-        {
-            get
-            {
-                return SteamVR_Actions.default_Pitch_Down;
-            }
-        }
-        
         public virtual SteamVR_Action_Single Squeeze
         {
             get
             {
                 return SteamVR_Actions.default_Squeeze;
+            }
+        }
+        
+        public virtual SteamVR_Action_Vector2 SmoothRotation
+        {
+            get
+            {
+                return SteamVR_Actions.default_SmoothRotation;
             }
         }
         

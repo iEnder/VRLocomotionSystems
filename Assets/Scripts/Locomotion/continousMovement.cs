@@ -45,7 +45,7 @@ public class continousMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
         continousMove();
-        // useGravity();
+        useGravity();
         handleJump();
 
     }

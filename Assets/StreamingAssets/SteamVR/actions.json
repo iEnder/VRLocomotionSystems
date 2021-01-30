@@ -65,16 +65,12 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/PitchUp",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/default/in/Pitch Down",
-      "type": "boolean"
-    },
-    {
       "name": "/actions/default/in/Squeeze",
       "type": "vector1"
+    },
+    {
+      "name": "/actions/default/in/SmoothRotation",
+      "type": "vector2"
     },
     {
       "name": "/actions/default/out/Haptic",
@@ -202,9 +198,8 @@
       "/actions/default/in/Jump": "Jump",
       "/actions/default/in/Break": "Break",
       "/actions/default/in/Boost": "Boost",
-      "/actions/default/in/PitchUp": "Pitch Up",
-      "/actions/default/in/Pitch Down": "Pitch Down",
-      "/actions/default/in/Squeeze": "Squeeze"
+      "/actions/default/in/Squeeze": "Squeeze",
+      "/actions/default/in/SmoothRotation": "Smooth Rotation"
     }
   ]
 }

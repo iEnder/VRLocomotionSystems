@@ -12,12 +12,15 @@ public class climbLocomotion : MonoBehaviour
     private SteamVR_Input_Sources currentLocomotionHand;
     private bool lHandCanGrab, rHandCanGrab = false;
 
+    public LocomotionSystems locomotion;
+
     private bool lGrabbing = false;
     private bool rGrabbing = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        locomotion = GetComponent<LocomotionSystems>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -47,21 +50,19 @@ public class climbLocomotion : MonoBehaviour
             Vector3 vel = PoseAction[currentLocomotionHand].velocity;
 
             if(GrabAction.GetState(currentLocomotionHand)) {
-                setGrabbing(currentLocomotionHand, true);
+                if(!lGrabbing || !rGrabbing) {
+                    setGrabbing(currentLocomotionHand, true);
+                }
                 rb.velocity = Vector3.zero;
                 transform.Translate(-vel * Time.fixedDeltaTime);
             }
 
             if(GrabAction.GetStateUp(currentLocomotionHand)) {
-                setGrabbing(currentLocomotionHand, false);
+                if(lGrabbing || rGrabbing) {
+                    setGrabbing(currentLocomotionHand, false);
+                }
                 rb.AddRelativeForce(-vel, ForceMode.Impulse);
             }
-
-            // if(GrabAction.GetStateUp(SteamVR_Input_Sources.Any)) {
-            //     setGrabbing(SteamVR_Input_Sources.LeftHand, false);
-            //     setGrabbing(SteamVR_Input_Sources.RightHand, false);
-            //     rb.AddRelativeForce(-vel, ForceMode.Impulse);
-            // }
         }
     }
 

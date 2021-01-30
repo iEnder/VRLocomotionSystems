@@ -47,11 +47,9 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_default_Boost;
         
-        private static SteamVR_Action_Boolean p_default_PitchUp;
-        
-        private static SteamVR_Action_Boolean p_default_Pitch_Down;
-        
         private static SteamVR_Action_Single p_default_Squeeze;
+        
+        private static SteamVR_Action_Vector2 p_default_SmoothRotation;
         
         private static SteamVR_Action_Vibration p_default_Haptic;
         
@@ -189,27 +187,19 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean default_PitchUp
-        {
-            get
-            {
-                return SteamVR_Actions.p_default_PitchUp.GetCopy<SteamVR_Action_Boolean>();
-            }
-        }
-        
-        public static SteamVR_Action_Boolean default_Pitch_Down
-        {
-            get
-            {
-                return SteamVR_Actions.p_default_Pitch_Down.GetCopy<SteamVR_Action_Boolean>();
-            }
-        }
-        
         public static SteamVR_Action_Single default_Squeeze
         {
             get
             {
                 return SteamVR_Actions.p_default_Squeeze.GetCopy<SteamVR_Action_Single>();
+            }
+        }
+        
+        public static SteamVR_Action_Vector2 default_SmoothRotation
+        {
+            get
+            {
+                return SteamVR_Actions.p_default_SmoothRotation.GetCopy<SteamVR_Action_Vector2>();
             }
         }
         
@@ -295,9 +285,8 @@ namespace Valve.VR
                     SteamVR_Actions.default_Jump,
                     SteamVR_Actions.default_Break,
                     SteamVR_Actions.default_Boost,
-                    SteamVR_Actions.default_PitchUp,
-                    SteamVR_Actions.default_Pitch_Down,
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_SmoothRotation,
                     SteamVR_Actions.default_Haptic,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
@@ -322,9 +311,8 @@ namespace Valve.VR
                     SteamVR_Actions.default_Jump,
                     SteamVR_Actions.default_Break,
                     SteamVR_Actions.default_Boost,
-                    SteamVR_Actions.default_PitchUp,
-                    SteamVR_Actions.default_Pitch_Down,
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_SmoothRotation,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Steering,
@@ -351,8 +339,6 @@ namespace Valve.VR
                     SteamVR_Actions.default_Jump,
                     SteamVR_Actions.default_Break,
                     SteamVR_Actions.default_Boost,
-                    SteamVR_Actions.default_PitchUp,
-                    SteamVR_Actions.default_Pitch_Down,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Brake,
                     SteamVR_Actions.buggy_Reset};
@@ -361,6 +347,7 @@ namespace Valve.VR
                     SteamVR_Actions.buggy_Throttle};
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
                     SteamVR_Actions.default_Move,
+                    SteamVR_Actions.default_SmoothRotation,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.buggy_Steering};
             Valve.VR.SteamVR_Input.actionsVector3 = new Valve.VR.SteamVR_Action_Vector3[0];
@@ -380,9 +367,8 @@ namespace Valve.VR
                     SteamVR_Actions.default_Jump,
                     SteamVR_Actions.default_Break,
                     SteamVR_Actions.default_Boost,
-                    SteamVR_Actions.default_PitchUp,
-                    SteamVR_Actions.default_Pitch_Down,
                     SteamVR_Actions.default_Squeeze,
+                    SteamVR_Actions.default_SmoothRotation,
                     SteamVR_Actions.platformer_Move,
                     SteamVR_Actions.platformer_Jump,
                     SteamVR_Actions.buggy_Steering,
@@ -408,9 +394,8 @@ namespace Valve.VR
             SteamVR_Actions.p_default_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Jump")));
             SteamVR_Actions.p_default_Break = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Break")));
             SteamVR_Actions.p_default_Boost = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Boost")));
-            SteamVR_Actions.p_default_PitchUp = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/PitchUp")));
-            SteamVR_Actions.p_default_Pitch_Down = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Pitch Down")));
             SteamVR_Actions.p_default_Squeeze = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/default/in/Squeeze")));
+            SteamVR_Actions.p_default_SmoothRotation = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/default/in/SmoothRotation")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));
             SteamVR_Actions.p_platformer_Move = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/platformer/in/Move")));
             SteamVR_Actions.p_platformer_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/platformer/in/Jump")));
